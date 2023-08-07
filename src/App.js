@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useEngine } from "./hooks";
+import { Route, Routes } from "react-router-dom";
+import Edit from "./pages/Edit";
+import Preview from "./pages/Preview";
 
-function App() {
+const App = () => {
+  const { state, dispatch, render } = useEngine();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Edit />} />
+      <Route path="/preview" element={<Preview />} />
+    </Routes>
   );
-}
+};
 
 export default App;
