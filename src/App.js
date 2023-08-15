@@ -1,16 +1,24 @@
 import React from "react";
-import { useEngine } from "./hooks";
-import { Route, Routes } from "react-router-dom";
-import Edit from "./pages/Edit";
-import Preview from "./pages/Preview";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./Pages/Auth/Login";
+import Otp from "./Pages/Auth/Otp";
+import Password from "./Pages/Auth/Password";
+import Dashboard from "./Pages/Dashboard";
+import Orders from "./Pages/Orders";
+import Profile from "./Pages/Profile";
+import "./assets/styles/index.css";
 const App = () => {
-  const { state, dispatch, render } = useEngine();
   return (
-    <Routes>
-      <Route path="/" element={<Edit />} />
-      <Route path="/preview" element={<Preview />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/otp" element={<Otp />} />
+        <Route path="/password" element={<Password />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
